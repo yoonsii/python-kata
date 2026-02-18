@@ -72,9 +72,9 @@ print(running_total(lst))
 
 def find_max_index(lst):
     max = 0
-    for x in lst:
+    for i,x in enumerate(lst):
         if x > max:
-            max = x
+            max = i
     return max
 
 #alternatively could use max() but defeats the purpose of learning here
