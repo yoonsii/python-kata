@@ -1,0 +1,18 @@
+You have an uncleaned stream of user checkout data. The system is buggy and sometimes sends dirty data (extra spaces, weird symbols, or completely missing values).
+Your job is to read the data, skip the broken rows, convert the valid prices to floating-point decimals, apply a $15\%$ discount, and calculate the final total revenue.
+The Test Input
+Bash
+
+echo -e "UserA,$25.00\nUserB,  $10.50 \nUserC,MISSING\nUserD,$100.00" | python3 price_sanitizer.py
+Your Checklist
+	1	The Loop: Read lines from sys.stdin and split them by commas (,).
+	2	The Validation (Data Cleaning):
+	◦	If a row doesn't have exactly 2 elements after splitting, skip it.
+	◦	If the price column contains the word "MISSING", skip it.
+	3	The Extraction:
+	◦	Strip away any accidental whitespace around the price using .strip().
+	◦	Strip away the dollar sign ($) using .replace("$", "").
+	4	The Math: Convert the cleaned price string into a float (float(price_string)). Calculate the discounted price ($85\%$ of the original price).
+	5	The Final Output: Keep a running total of the discounted revenue and print it at the very end as a clean string:PlaintextTotal Discounted Revenue: $115.18
+
+Want to see how your data engineering skills handle dirty input? Let's see you cook up price_sanitizer.py!
